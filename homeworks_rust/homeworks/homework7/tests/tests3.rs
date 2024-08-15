@@ -5,7 +5,8 @@
 // Execute `rustlings hint tests3` for hints :)
 
 pub fn is_even(num: i32) -> bool {
-    (num * 10) % 2 == 0
+    // I think i32 can fit into f32
+    (num as f32) % 2.0 == 0.0
 }
 
 #[cfg(test)]
@@ -14,11 +15,11 @@ mod tests {
 
     #[test]
     fn is_true_when_even() {
-        assert!(is_even(200), true);
+        assert!(is_even(200));
     }
 
     #[test]
     fn is_false_when_odd() {
-        assert!(is_even(5), false);
+        assert!(!is_even(5));
     }
 }
